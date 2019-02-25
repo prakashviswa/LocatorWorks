@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.DateUtil;
@@ -15,6 +16,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -25,7 +27,7 @@ import org.openqa.selenium.interactions.Actions;
 public class Base {
 	static WebDriver driver;
 
-	public static WebDriver getChromeDriver() {
+	public WebDriver getChromeDriver() {
 		System.setProperty("webdriver.chrome.driver",
 				"D:\\Users\\teslaram\\seleniumNewWork\\SeleniumStartUp\\Driver\\chromedriver.exe");
 		driver = new ChromeDriver();
@@ -172,6 +174,18 @@ public class Base {
 	public void promptAlertCancel() {
 		Alert alertRef = driver.switchTo().alert();
 		alertRef.dismiss();
+	}
+	
+	public static void goToPage(String pageNum) {
+List <WebElement> cols=(List<WebElement>) driver.findElement(By.xpath("//input[@id='uh-search-box' and @type='text']");
+for (int i = 0; i < cols.size(); i++) {
+	if(cols.get(i).getText().equals( pageNum)) {
+		cols.get(i).findElement(By.xpath("//div[@id='yui_3_10_0_1_1551033705766_643']/a"));
+		cols.get(i).findElement(By.xpath("a")).click();
+		break;
+	}
+	
+}
 	}
 
 }
